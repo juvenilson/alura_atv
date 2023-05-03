@@ -43,3 +43,6 @@ def adivinhacao():
             print("You need to write a number between 1 and 100!!")
         
     print(f"You have {points} points.")
+
+if (__name__ == "__main__"):
+    adivinhacao()
