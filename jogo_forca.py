@@ -5,19 +5,18 @@ def forca():
     print("Jorgo da forca")
     print("=" * 20)
 
-    palavra_secreta = "pneumoultramicroscopicossilicovulcanoconiótico"
+    palavra_secreta = "banana"
     enforcou = False
     acertou = False
     jogada = ""
     palavra = []
+    erro = 5
+    
     for i in range(0, len(palavra_secreta)):
-        palavra.append("")
+        palavra.append("_")
     print(palavra)
 
-    
-    #palavra = ["", "", "", "", "", "", "", ""]
-
-    while ( not enforcou and not acertou):
+    while (erro > 0 and not acertou):
         jogada = str(input("Qual letra? ")).strip(" ").lower()[0]
         print("jogando....")
 
@@ -30,15 +29,19 @@ def forca():
                     print(f"Encontrei a letra {jogada} na posição {index + 1}")
                     palavra[index] = jogada
                 index += 1
-                
-            
-            
-
+            if "_" not in palavra:
+                print("você acertou a palavra!")
+                break 
 
         elif (jogada != palavra_secreta):
             print("Você errou!")
+            erro -= 1
+            if (erro == 0):
+                print("Você perdeu todas as chances")
+                break
+ 
 
-        print(palavra)
+    print(palavra)
                 
 
 if (__name__ == "__main__"):
