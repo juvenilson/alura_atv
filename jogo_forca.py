@@ -9,14 +9,11 @@ def forca():
     enforcou = False
     acertou = False
     jogada = ""
-    palavra = []
-    erro = 5
-    
-    for i in range(0, len(palavra_secreta)):
-        palavra.append("_")
+    palavra = ["_" for letra in palavra_secreta]
+    erro = 5    
     print(palavra)
 
-    while (erro > 0 and not acertou):
+    while (not enforcou and not acertou):
         jogada = str(input("Qual letra? ")).strip(" ").lower()[0]
         print("jogando....")
 
@@ -31,17 +28,18 @@ def forca():
                 index += 1
             if "_" not in palavra:
                 print("você acertou a palavra!")
-                break 
+                acertou = True 
 
         elif (jogada != palavra_secreta):
-            print("Você errou!")
             erro -= 1
+            print("Você errou!")
+            print(f"Você tem mais {erro} chances!")
             if (erro == 0):
                 print("Você perdeu todas as chances")
-                break
+                enforcou = True
  
 
-    print(palavra)
+        print(palavra)
                 
 
 if (__name__ == "__main__"):
