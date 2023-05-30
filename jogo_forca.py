@@ -1,11 +1,20 @@
-#iniciando um novo projjeto de jogo
+import random
 
 def forca():
     print("=" * 20)
     print("Jorgo da forca")
     print("=" * 20)
 
-    palavra_secreta = "banana"
+    arquivo  = open("palavra.txt", "r")
+    palavras = []
+    for linha in arquivo:
+        linha = linha.strip()
+        palavras.append(linha)
+
+    arquivo.close()
+    sorteio = random.randrange(0, len(palavras))
+
+    palavra_secreta = palavras[sorteio]
     enforcou = False
     acertou = False
     jogada = ""

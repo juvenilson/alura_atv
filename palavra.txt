@@ -1,0 +1,14 @@
+banana
+melancia
+pera
+caju
+morango
+casa
+carro
+pessoa
+dinheiro
+amigos
+amor
+felicidade
+prazer
+tristeza
